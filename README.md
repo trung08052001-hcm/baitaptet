@@ -1,6 +1,6 @@
-Nguyễn Quang Trung 1907114
+Nguyễn Quang Trung 19207114
 
-Nguyễn Quốc Trung 19027115
+Nguyễn Quốc Trung 19207115
 
 Nguyễn Văn Trường 19207116
 
