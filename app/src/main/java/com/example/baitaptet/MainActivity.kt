@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
             val intent: Intent = Intent (this, MainActivity1::class.java)
             startActivity(intent)
+            dasdasdasdasdasdasdassssssssssssssssssssssssssssssssssssssssssssssssssss
 
         }
     }
