@@ -28,16 +28,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:textSize="35dp"
-            android:id="@+id/usernameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="136dp"
-            android:text="TextView"
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="243dp"
+            android:layout_height="159dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Profile" />
+            app:layout_constraintTop_toBottomOf="@+id/Profile"
+            app:srcCompat="@drawable/giaohang" />
+
+        <TextView
+
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/accountprofile"
+            android:layout_width="292dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="80dp"
+            android:text="Usẻname"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

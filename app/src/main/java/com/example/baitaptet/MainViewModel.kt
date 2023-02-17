@@ -9,72 +9,65 @@ import androidx.lifecycle.ViewModel
 enum class Error {
     ERROR_ACCOUNT,
     ERROR_PASSWORD,
+    ERROR_CONFIRM_PASSWORD,
+    ERROR_LOGIN_FAILED
 }
 
-class Resp(val isSuccess: Boolean, val error: Error?)
 
 class MainViewModel : ViewModel() {
-    private var _isSuccessEvent: MutableLiveData<Boolean> = MutableLiveData()
-    val isSuccessEvent: LiveData<Boolean>
-        get() = _isSuccessEvent
 
-    private var _isErrorEvent: MutableLiveData<String> = MutableLiveData()
-    val isErrorEvent: LiveData<String>
-        get() = _isErrorEvent
+    private val _isSignupSuccess = MutableLiveData<Boolean>()
+    val isSignupSuccess: LiveData<Boolean>
+        get() = _isSignupSuccess
+
+    private val _isLoginSuccess = MutableLiveData<Boolean>()
+    val isLoginSuccess: LiveData<Boolean>
+        get() = _isLoginSuccess
+
+    private val _error = MutableLiveData<Error>()
+    val error: LiveData<Error>
+        get() = _error
+
+    private var loggedInAccount: String? = null
 
     fun login(username: String, password: String) {
 
-        val isValidAccount = accountvalid(username)
-        if (!isValidAccount) {
-            _isErrorEvent.postValue("This account is Invalid")
+        if (loggedInAccount != null) {
+            _error.value = Error.ERROR_ACCOUNT
             return
         }
-        //password length > 8 && < 10
-        val isValidPassword = isPasswordValid(password)
-        if (!isValidPassword) {
-            _isErrorEvent.postValue("This password is Invalid")
-            return
-        }
-        // check login with server
-        // ...
 
-        _isSuccessEvent.postValue(true)
+        // Kiểm tra tài khoản và mật khẩu
+        if (username == "example@example.com" && password == "password") {
+            loggedInAccount = username
+            _isLoginSuccess.value = true
+        } else {
+            _error.value = Error.ERROR_LOGIN_FAILED
+        }
     }
 
     fun signup(username: String, password: String, confirmPassword: String) {
+
         // Kiểm tra định dạng tài khoản
-        val isValidAccount = accountvalid(username)
-        if (!isValidAccount) {
-            _isErrorEvent.postValue("Tài khoản không hợp lệ")
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+            _error.value = Error.ERROR_ACCOUNT
             return
         }
 
         // Kiểm tra độ dài mật khẩu
-        val isValidPassword = isPasswordValid(password)
-        if (!isValidPassword) {
-            _isErrorEvent.postValue("Mật khẩu không hợp lệ")
+        if (password.length !in 8..10) {
+            _error.value = Error.ERROR_PASSWORD
             return
         }
 
         // Kiểm tra mật khẩu nhập lại có khớp với mật khẩu không
         if (password != confirmPassword) {
-            _isErrorEvent.postValue("Mật khẩu nhập lại không khớp với mật khẩu")
+            _error.value = Error.ERROR_CONFIRM_PASSWORD
             return
         }
 
-        // Thực hiện đăng ký tài khoản
-        // ...
-
-        // Nếu đăng ký thành công, đưa ra thông báo và chuyển sang màn hình đăng nhập
-        _isSuccessEvent.postValue(true)
-        _isErrorEvent.postValue("Đăng ký tài khoản thành công")
-    }
-
-    private fun accountvalid(account: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(account).matches()
-    }
-
-    private fun isPasswordValid(password: String): Boolean {
-        return password.length in 8..10
+        // Lưu tài khoản mới và đăng nhập thành công
+        loggedInAccount = username
+        _isSignupSuccess.value = true
     }
 }
