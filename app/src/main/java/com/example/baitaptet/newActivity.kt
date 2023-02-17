@@ -5,50 +5,77 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.example.baitaptet.databinding.ActivityNewBinding
+
 
 class newActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityNewBinding
+    private lateinit var viewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new)
-        var Login = findViewById<Button>(R.id.Login)
-        Login.setOnClickListener{
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_new)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        binding.signup.setOnClickListener{
+            Signup()
+        }
+        binding.Login.setOnClickListener{
             Login()
+        }
+        listenerSuccessEvent()
+        listenerErrorEvent()
+    }
+    private fun Signup(){
+        val intent = Intent(this, SignupActivity::class.java)
+        startActivity(intent)
+    }
+    private fun Login() {
 
-//            var status = if(username.text.toString().equals("username@gmail.com")
-//                && password.text.toString().equals("123456"))"Login successful"
-//            else "login fail"
-//            Toast.makeText(this,status,Toast.LENGTH_SHORT).show()
+        val username = binding.username.text.toString().trim()
+        val password = binding.password.text.toString().trim()
+
+
+        val data = intent.extras
+        if (data != null) {
+            val signupUsername = data.getString("username")
+            val signupPassword = data.getString("password")
+            if (!signupUsername.isNullOrEmpty() && !signupPassword.isNullOrEmpty()) {
+
+                viewModel.login(signupUsername, signupPassword)
+                return
+            }
+        }
+
+
+        viewModel.login(username, password)
+        val intent = Intent(this, ProfileActivity::class.java)
+        val bundle = Bundle()
+        bundle.putString("username", username)
+        intent.putExtras(bundle)
+        startActivity(intent)
+    }
+    private fun listenerSuccessEvent() {
+        viewModel.isSuccessEvent.observe(this) { isSuccess ->
+            if (isSuccess) {
+                val userName = binding.username.text.toString().trim()
+                val password = binding.password.text.toString().trim()
+                val intent = Intent(this, ProfileActivity::class.java)
+                val bundle = Bundle()
+                bundle.putParcelable(Activity.KEY_USER, UserNameProfile(userName, password))
+                intent.putExtras(bundle)
+                startActivity(intent)
+            }
         }
     }
-    private fun Login(){
-        var username = findViewById<EditText>(R.id.username)
-        var password = findViewById<EditText>(R.id.password)
-        if(username.text.toString().equals(Util.ACCOUNT) && password.text.toString().equals(Util.PASS_WORD)) {
-            val builder = android.app.AlertDialog.Builder(this)
-
-            builder.setMessage("Login success")
-                .setPositiveButton("Ok", { dialogInterface: DialogInterface, i: Int -> Continue() })
-                .show()
-        } else {
-            val builder = android.app.AlertDialog.Builder(this)
-
-            builder.setMessage("Login faild")
-                .setNegativeButton("Ok", { dialogInterface: DialogInterface, i: Int -> goHome()})
-                .show()
+    private fun listenerErrorEvent() {
+        viewModel.isErrorEvent.observe(this) { errMsg ->
+            Toast.makeText(this, errMsg, Toast.LENGTH_SHORT).show()
         }
     }
-    private fun goHome() {
-        startActivity(Intent(this, MainActivity::class.java))
-    }
-    private fun Continue() {
-        startActivity(Intent(this, ProfileActivity::class.java))
-    }
 
-    object Util {
-        const val ACCOUNT = "username@gmail.com"
-        const val PASS_WORD = "123456"
-    }
 }
 
 
