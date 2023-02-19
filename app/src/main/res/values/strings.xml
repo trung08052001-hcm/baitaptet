@@ -9,4 +9,19 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="login_title">Login</string>
+    <string name="e_mail">E-mail</string>
+    <string name="login_email">Your Email or phone</string>
+    <string name="login_password">Password</string>
+    <string name="password_hint">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login_text_btn">LOGIN</string>
+    <string name="don_t_have_an_account">Don’t have an account?</string>
+    <string name="sign_up_label">Sign Up</string>
+    <string name="signin_with">Sign in with</string>
+    <string name="btn_text_facebook">FACEBOOK</string>
+    <string name="btn_text_gmail">GOOGLE</string>
+    <string name="full_name_label">Full name</string>
+    <string name="e_mail_label">E-mail</string>
+    <string name="phone_number_label">Phone Number</string>
 </resources>

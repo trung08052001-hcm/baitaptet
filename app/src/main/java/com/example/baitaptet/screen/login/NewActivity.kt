@@ -1,4 +1,4 @@
-package com.example.baitaptet
+package com.example.baitaptet.screen.login
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -6,24 +6,22 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.baitaptet.MainActivity
+import com.example.baitaptet.R
+import com.example.baitaptet.screen.profile.ProfileActivity
 
 class newActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new)
-        var Login = findViewById<Button>(R.id.Login)
+        var Login = findViewById<Button>(R.id.buttonLogin)
         Login.setOnClickListener{
             Login()
-
-//            var status = if(username.text.toString().equals("username@gmail.com")
-//                && password.text.toString().equals("123456"))"Login successful"
-//            else "login fail"
-//            Toast.makeText(this,status,Toast.LENGTH_SHORT).show()
         }
     }
     private fun Login(){
-        var username = findViewById<EditText>(R.id.username)
-        var password = findViewById<EditText>(R.id.password)
+        var username = findViewById<EditText>(R.id.emailInputText)
+        var password = findViewById<EditText>(R.id.passwordInputText)
         if(username.text.toString().equals(Util.ACCOUNT) && password.text.toString().equals(Util.PASS_WORD)) {
             val builder = android.app.AlertDialog.Builder(this)
 
@@ -39,7 +37,7 @@ class newActivity : AppCompatActivity() {
         }
     }
     private fun goHome() {
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, newActivity::class.java))
     }
     private fun Continue() {
         startActivity(Intent(this, ProfileActivity::class.java))

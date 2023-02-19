@@ -1,16 +1,18 @@
-package com.example.baitaptet
+package com.example.baitaptet.screen.wellcome
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
+import com.example.baitaptet.R
 
 class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        val button = findViewById<Button>(R.id.button2)
-        button.setOnClickListener {
+        val img = findViewById<ImageView>(R.id.imageNext2)
+        img.setOnClickListener {
             val intent: Intent = Intent (this, MainActivity3::class.java)
             startActivity(intent)
 

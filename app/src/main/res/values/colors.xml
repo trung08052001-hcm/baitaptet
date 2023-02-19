@@ -10,4 +10,5 @@
     <color name="textcolor">#ECE5EC</color>
     <color name="bluecolor">#99CCFF</color>
     <color name="orange">#FF7F50</color>
+    <color name="splash_screen">#FE724C</color>
 </resources>
