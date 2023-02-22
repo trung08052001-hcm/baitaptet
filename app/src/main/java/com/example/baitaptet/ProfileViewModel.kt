@@ -1,4 +1,4 @@
-package com.example.baitaptet.ViewModel
+package com.example.baitaptet
 
 import android.content.Context
 import android.content.SharedPreferences

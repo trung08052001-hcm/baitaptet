@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.example.baitaptet.ViewModel.ProfileViewModel
+import com.example.baitaptet.ProfileViewModel
 import com.example.baitaptet.R
 import com.example.baitaptet.databinding.ActivityProfileBinding
 
@@ -15,8 +15,6 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         viewModel.initSharedPreferences(this)
-
-        // Khởi tạo ViewDataBinding
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel

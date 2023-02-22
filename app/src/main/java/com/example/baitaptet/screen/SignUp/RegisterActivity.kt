@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.example.baitaptet.ViewModel.MainViewModel
+import com.example.baitaptet.MainViewModel
 import com.example.baitaptet.R
 import com.example.baitaptet.databinding.ActivityRegisterBinding
 import com.example.baitaptet.screen.login.newActivity
@@ -21,7 +21,7 @@ class registerActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewModel.initSharedPreferences(this)
 
-        // Set up onClickListener cho nút đăng ký
+
         binding.buttonSignUp.setOnClickListener {
             val fullname = binding.fullNameInput.text.toString().trim()
             val email = binding.emailInput.text.toString().trim()
@@ -30,13 +30,13 @@ class registerActivity : AppCompatActivity() {
             viewModel.SignUp(this, fullname,email, password)
         }
 
-        // Theo dõi sự thay đổi trạng thái đăng ký
+
         viewModel.isSuccessEvent.observe(this, {
             if (it) {
-                // Đăng ký thành công
-                Toast.makeText(this, "Đăng ký thành công.", Toast.LENGTH_SHORT).show()
 
-                // Chuyển sang màn hình đăng nhập
+                Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
+
+
                 val intent = Intent(this, newActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -44,7 +44,7 @@ class registerActivity : AppCompatActivity() {
         })
 
         viewModel.isErrorEvent.observe(this, {
-            // Hiển thị thông báo lỗi đăng ký
+
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         })
     }

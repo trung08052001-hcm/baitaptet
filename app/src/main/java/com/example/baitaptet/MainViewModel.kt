@@ -1,4 +1,4 @@
-package com.example.baitaptet.ViewModel
+package com.example.baitaptet
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -31,26 +31,26 @@ class MainViewModel : ViewModel() {
         if (email == savedEmail && password == savedPassword) {
             _isSuccessEvent.postValue(true)
         } else {
-            _isErrorEvent.postValue("Thông tin đăng nhập không hợp lệ.")
+            _isErrorEvent.postValue("Invalid login information.")
         }
     }
 
     fun SignUp(context: Context,fullName : String , email: String, password: String) {
         if (fullName.isEmpty()) {
-            _isErrorEvent.postValue("Vui lòng nhập họ tên của bạn.")
+            _isErrorEvent.postValue("Please enter your full name")
             return
         }
         if (!isEmailValid(email)) {
-            _isErrorEvent.postValue("Email không hợp lệ.")
+            _isErrorEvent.postValue("Email is invalid")
             return
         }
 
         if (!isPasswordValid(password)) {
-            _isErrorEvent.postValue("Mật khẩu không hợp lệ.")
+            _isErrorEvent.postValue("Password is invalid")
             return
         }
 
-        // Lưu thông tin đăng ký vào SharedPreferences
+
         editor.putString("fullName", fullName)
         editor.putString("email", email)
         editor.putString("password", password)

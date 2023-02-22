@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.example.baitaptet.ViewModel.MainViewModel
+import com.example.baitaptet.MainViewModel
 import com.example.baitaptet.R
 import com.example.baitaptet.databinding.ActivityNewBinding
 import com.example.baitaptet.screen.SignUp.registerActivity
