@@ -23,5 +23,12 @@
     <string name="btn_text_gmail">GOOGLE</string>
     <string name="full_name_label">Full name</string>
     <string name="e_mail_label">E-mail</string>
+    <string name="phone_number_label_signup">Phone Number</string>
+    <string name="signup">Signup</string>
+    <string name="You_full_name">Your Full name</string>
+    <string name="your_e_mail_sign_up">Your E-mail</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="sign_in">Sign In</string>
     <string name="phone_number_label">Phone Number</string>
 </resources>

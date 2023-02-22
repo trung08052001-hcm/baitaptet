@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.ImageView
 import com.example.baitaptet.R
 import com.example.baitaptet.screen.login.newActivity
-import com.example.baitaptet.screen.profile.ProfileActivity
 
 class MainActivity3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
