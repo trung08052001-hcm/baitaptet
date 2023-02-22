@@ -2,6 +2,7 @@ package com.example.baitaptet
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -60,10 +61,12 @@ class MainViewModel : ViewModel() {
     }
 
     private fun isEmailValid(email: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        val emailPattern = Patterns.EMAIL_ADDRESS
+        return emailPattern.matcher(email).matches() && email.endsWith("@gmail.com")
     }
 
     private fun isPasswordValid(password: String): Boolean {
-        return password.length in 8..10
+        val passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$".toRegex()
+        return passwordPattern.matches(password)
     }
 }
