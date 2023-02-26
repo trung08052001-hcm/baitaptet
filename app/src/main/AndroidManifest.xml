@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Baitaptet.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".RestaurantsActivity"
+            android:exported="false" />
+        <activity
             android:name=".screen.wellcome.welcome"
             android:exported="false" />
         <activity

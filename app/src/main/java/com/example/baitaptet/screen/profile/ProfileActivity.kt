@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.example.baitaptet.ProfileViewModel
+import com.example.baitaptet.viewmodel.ProfileViewModel
 import com.example.baitaptet.R
 import com.example.baitaptet.databinding.ActivityProfileBinding
 

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.baitaptet.ProfileViewModel" />
+            type="com.example.baitaptet.viewmodel.ProfileViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
