@@ -1,6 +1,4 @@
 package com.example.baitaptet
-
-import android.graphics.ImageDecoder.OnPartialImageListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +21,7 @@ class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         }
     }
 
-    fun bindData(image: Image, callback: OnPartialImageListener) {
+    fun bindData(image: Image, callback: OnImageItemListener) {
         val tvTitle = itemView.findViewById<TextView>(R.id.tv_title);
         val tvDescription =
             itemView.findViewById<TextView>(R.id.tv_description)

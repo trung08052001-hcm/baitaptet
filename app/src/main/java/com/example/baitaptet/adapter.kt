@@ -7,12 +7,13 @@ import androidx.recyclerview.widget.ListAdapter
 
 
 
-interface adapter {
+interface OnImageItemListener {
     fun onClickItem(item: Image)
 
     fun onLongClick(item: Image)
 }
-class ImageAdapter(val itemListener: OnPartialImageListener) :
+
+class ImageAdapter(val itemListener: OnImageItemListener) :
     ListAdapter<Image, ImageViewHolder>
         (ImageDiffUtil()) {
 

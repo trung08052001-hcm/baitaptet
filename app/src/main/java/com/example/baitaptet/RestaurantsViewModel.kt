@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MainVM : ViewModel() {
+class RestaurantsViewModel: ViewModel()  {
     private var _listOfImage: MutableLiveData<List<Image>> = MutableLiveData()
     val listOfIdol: LiveData<List<Image>>
         get() = _listOfImage
@@ -21,7 +21,7 @@ class MainVM : ViewModel() {
 
         viewModelScope.launch {
             delay(3000)
-            val dataSet = Datatore.getData()
+            val dataSet = DataStore.getDataSet()
 
             _isLoading.postValue(false)
             _listOfImage.postValue(dataSet)

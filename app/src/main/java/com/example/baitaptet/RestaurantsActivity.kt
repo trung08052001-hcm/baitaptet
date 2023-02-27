@@ -2,28 +2,52 @@ package com.example.baitaptet
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.baitaptet.databinding.ActivityRestaurantsBinding
+
 
 class RestaurantsActivity : AppCompatActivity() {
     lateinit var binding: ActivityRestaurantsBinding
     lateinit var adapter: ImageAdapter
-    lateinit var viewModel: MainVM
+    lateinit var viewModel: RestaurantsViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_restaurants)
-        viewModel = ViewModelProvider(this)[MainVM::class.java]
+        viewModel = ViewModelProvider(this)[RestaurantsViewModel::class.java]
 
         setUpRecyclerView()
         setUpButtonLoad()
 
         registerDataEvent()
         registerLoadingView()
+        setSupportActionBar(binding.toolbar)
+    }
+    override fun onCreateOptionsMenu(menu: Menu) :Boolean{
+        menuInflater.inflate(R.menu.menu_option,menu)
+        return true
+
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_toggle_layout_manager -> {
+                val layoutManager = if (binding.rvImage.layoutManager is LinearLayoutManager) {
+                    GridLayoutManager(this, 2)
+                } else {
+                    LinearLayoutManager(this)
+                }
+                binding.rvImage.layoutManager = layoutManager
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
     private fun setUpRecyclerView() {

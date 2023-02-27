@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.baitaptet.viewmodel.MainViewModel
 import com.example.baitaptet.R
+import com.example.baitaptet.RestaurantsActivity
 import com.example.baitaptet.databinding.ActivityNewBinding
 import com.example.baitaptet.screen.SignUp.registerActivity
 import com.example.baitaptet.screen.profile.ProfileActivity
@@ -33,7 +34,7 @@ class newActivity : AppCompatActivity() {
 
         viewModel.isSuccessEvent.observe(this, { success ->
             if (success) {
-                val intent = Intent(this, ProfileActivity::class.java)
+                val intent = Intent(this, RestaurantsActivity::class.java)
                 startActivity(intent)
                 finish()
             }

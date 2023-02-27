@@ -1,7 +1,7 @@
 package com.example.baitaptet
 
-object Datatore {
-    fun getData(): List<Image>? {
+object DataStore {
+    fun getDataSet(): List<Image> {
         return listOf(
             Image(
                 36, "Photo 36", "Vadim Sherbakov", "https://picsum" +
@@ -54,6 +54,5 @@ object Datatore {
         )
     }
 }
-
 
 
