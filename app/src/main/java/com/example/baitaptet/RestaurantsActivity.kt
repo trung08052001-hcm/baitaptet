@@ -96,4 +96,5 @@ class RestaurantsActivity : AppCompatActivity() {
         }
     }
 
+
 }
