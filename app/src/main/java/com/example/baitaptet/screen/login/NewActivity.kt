@@ -34,7 +34,7 @@ class newActivity : AppCompatActivity() {
 
         viewModel.isSuccessEvent.observe(this, { success ->
             if (success) {
-                val intent = Intent(this, RestaurantsActivity::class.java)
+                val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
                 finish()
             }

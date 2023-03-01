@@ -27,7 +27,7 @@ class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             itemView.findViewById<TextView>(R.id.tv_description)
         val ivAvatar = itemView.findViewById<ImageView>(R.id.iv_avatar)
         tvTitle.text = image.name
-        tvDescription.text = image.author
+        tvDescription.text = image.address
         Glide.with(itemView.context).load(image.link).centerCrop()
             .into(ivAvatar)
 

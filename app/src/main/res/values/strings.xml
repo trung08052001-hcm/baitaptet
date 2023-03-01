@@ -34,4 +34,5 @@
     <string name="welcome_title">Welcome to Food Hub</string>
     <string name="welcome_body">Your favourite foods delivered fast at your door.</string>
     <string name="action_toggle_layout_manager">gird view</string>
+    <string name="continue_profile"> continue</string>
 </resources>
