@@ -29,6 +29,7 @@ class RestaurantsActivity : AppCompatActivity() {
         registerDataEvent()
         registerLoadingView()
         setSupportActionBar(binding.toolbar)
+        supportActionBar?.setTitle("Restaurants")
     }
     override fun onCreateOptionsMenu(menu: Menu) :Boolean{
         menuInflater.inflate(R.menu.menu_option,menu)

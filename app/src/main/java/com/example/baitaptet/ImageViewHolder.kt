@@ -23,14 +23,11 @@ class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindData(image: Image, callback: OnImageItemListener) {
         val tvTitle = itemView.findViewById<TextView>(R.id.tv_title);
-        val tvDescription =
-            itemView.findViewById<TextView>(R.id.tv_description)
+        val tvDescription = itemView.findViewById<TextView>(R.id.tv_description)
         val ivAvatar = itemView.findViewById<ImageView>(R.id.iv_avatar)
         tvTitle.text = image.name
         tvDescription.text = image.address
-        Glide.with(itemView.context).load(image.link).centerCrop()
-            .into(ivAvatar)
-
+        Glide.with(itemView.context).load(image.link).centerCrop().into(ivAvatar)
         itemView.setOnClickListener { callback.onClickItem(image) }
         itemView.setOnLongClickListener {
             callback.onLongClick(image)
