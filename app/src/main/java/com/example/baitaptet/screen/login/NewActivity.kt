@@ -1,51 +1,49 @@
 package com.example.baitaptet.screen.login
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.baitaptet.MainActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.example.baitaptet.viewmodel.MainViewModel
 import com.example.baitaptet.R
+import com.example.baitaptet.RestaurantsActivity
+import com.example.baitaptet.databinding.ActivityNewBinding
+import com.example.baitaptet.screen.SignUp.registerActivity
 import com.example.baitaptet.screen.profile.ProfileActivity
 
 class newActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityNewBinding
+    private lateinit var viewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new)
-        var Login = findViewById<Button>(R.id.buttonLogin)
-        Login.setOnClickListener{
-            Login()
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_new)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.initSharedPreferences(this)
+        binding.Signup.setOnClickListener{
+            val intent = Intent(this, registerActivity ::class.java)
+            startActivity(intent)
         }
-    }
-    private fun Login(){
-        var username = findViewById<EditText>(R.id.emailInputText)
-        var password = findViewById<EditText>(R.id.passwordInputText)
-        if(username.text.toString().equals(Util.ACCOUNT) && password.text.toString().equals(Util.PASS_WORD)) {
-            val builder = android.app.AlertDialog.Builder(this)
-
-            builder.setMessage("Login success")
-                .setPositiveButton("Ok", { dialogInterface: DialogInterface, i: Int -> Continue() })
-                .show()
-        } else {
-            val builder = android.app.AlertDialog.Builder(this)
-
-            builder.setMessage("Login faild")
-                .setNegativeButton("Ok", { dialogInterface: DialogInterface, i: Int -> goHome()})
-                .show()
+        binding.buttonLogin.setOnClickListener {
+            val email = binding.emailInputText.text.toString()
+            val password = binding.passwordInputText.text.toString()
+            viewModel.checkEmailAndPassword(this, email, password)
         }
-    }
-    private fun goHome() {
-        startActivity(Intent(this, newActivity::class.java))
-    }
-    private fun Continue() {
-        startActivity(Intent(this, ProfileActivity::class.java))
-    }
 
-    object Util {
-        const val ACCOUNT = "username@gmail.com"
-        const val PASS_WORD = "123456"
+        viewModel.isSuccessEvent.observe(this, { success ->
+            if (success) {
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        })
+
+        viewModel.isErrorEvent.observe(this, { error ->
+            Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+        })
+
     }
 }
 

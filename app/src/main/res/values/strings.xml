@@ -6,7 +6,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name="btn_start_w_email_or_phone">Start with email or phone</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="login_title">Login</string>
@@ -23,5 +23,16 @@
     <string name="btn_text_gmail">GOOGLE</string>
     <string name="full_name_label">Full name</string>
     <string name="e_mail_label">E-mail</string>
+    <string name="phone_number_label_signup">Phone Number</string>
+    <string name="signup">Signup</string>
+    <string name="You_full_name">Your Full name</string>
+    <string name="your_e_mail_sign_up">Your E-mail</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="sign_in">Sign In</string>
     <string name="phone_number_label">Phone Number</string>
+    <string name="welcome_title">Welcome to Food Hub</string>
+    <string name="welcome_body">Your favourite foods delivered fast at your door.</string>
+    <string name="action_toggle_layout_manager">gird view</string>
+    <string name="continue_profile"> continue</string>
 </resources>
