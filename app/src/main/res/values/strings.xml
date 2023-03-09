@@ -35,4 +35,6 @@
     <string name="welcome_body">Your favourite foods delivered fast at your door.</string>
     <string name="action_toggle_layout_manager">gird view</string>
     <string name="continue_profile"> continue</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

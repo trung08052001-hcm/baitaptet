@@ -1,12 +1,12 @@
 package com.example.baitaptet
 
-import android.graphics.ImageDecoder.OnPartialImageListener
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
+import com.example.baitaptet.screen.restaurants.Image
+import com.example.baitaptet.screen.restaurants.ImageViewHolder
 
 
 interface OnImageItemListener {
@@ -30,9 +30,9 @@ class ImageAdapter(val itemListener: OnImageItemListener) :
         val image = getItem(position)
         holder.bindData(image, itemListener)
 
-        // set item click listener
+
         holder.itemView.setOnClickListener {
-            // show notification to confirm deletion
+
             val builder = AlertDialog.Builder(holder.itemView.context)
             builder.setMessage("Are you sure you want to delete this item?")
                 .setPositiveButton("Yes") { dialog, which ->

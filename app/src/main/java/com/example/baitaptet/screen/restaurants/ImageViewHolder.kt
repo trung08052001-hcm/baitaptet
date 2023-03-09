@@ -1,4 +1,4 @@
-package com.example.baitaptet
+package com.example.baitaptet.screen.restaurants
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -6,6 +6,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.baitaptet.OnImageItemListener
+import com.example.baitaptet.R
 
 class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     companion object {

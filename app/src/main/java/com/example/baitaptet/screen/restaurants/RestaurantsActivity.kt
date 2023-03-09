@@ -1,4 +1,4 @@
-package com.example.baitaptet
+package com.example.baitaptet.screen.restaurants
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +11,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.baitaptet.ImageAdapter
+import com.example.baitaptet.OnImageItemListener
+import com.example.baitaptet.R
 import com.example.baitaptet.databinding.ActivityRestaurantsBinding
+import com.example.baitaptet.viewmodel.RestaurantsViewModel
 
 
 class RestaurantsActivity : AppCompatActivity() {

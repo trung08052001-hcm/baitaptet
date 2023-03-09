@@ -1,5 +1,7 @@
 package com.example.baitaptet
 
+import com.example.baitaptet.screen.restaurants.Image
+
 object DataStore {
     fun getDataSet(): List<Image> {
         return listOf(
