@@ -7,18 +7,22 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.baitaptet.R // thay vì import android.R
+
 import com.example.baitaptet.databinding.FragmentRestaurantsBinding
 import com.example.baitaptet.screen.restaurants.Image
 import com.example.baitaptet.viewmodel.RestaurantsViewModel
-import androidx.navigation.fragment.findNavController
+
 
 
 class RestaurantsFragment : Fragment() {
-    // Khai báo các biến cần thiết
+
     lateinit var binding: FragmentRestaurantsBinding
     lateinit var adapter: ImageAdapter
     lateinit var viewModel: RestaurantsViewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +39,19 @@ class RestaurantsFragment : Fragment() {
         (binding.toolbar as? AppCompatActivity)?.setSupportActionBar(binding.toolbar)
         binding.toolbar.title = "Restaurants"
         return binding.root
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_option, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_profile -> {
+
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setUpRecyclerView() {

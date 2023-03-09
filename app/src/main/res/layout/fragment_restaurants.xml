@@ -21,6 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white"
+            android:title="Restaurants"
+            android:titleTextColor="@color/black"
+            app:titleMarginStart="72dp"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
