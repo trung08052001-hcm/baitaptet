@@ -31,7 +31,10 @@ class LoginFragment : Fragment() {
         viewModel.initSharedPreferences(requireContext())
 
         binding.Signup.setOnClickListener{
+            Toast.makeText(requireContext(), "Registration successful", Toast.LENGTH_SHORT).show()
 
+            val controller = findNavController()
+            controller.navigate(R.id.signUpFragment)
         }
         binding.buttonLogin.setOnClickListener {
             val email = binding.emailInputText.text.toString()
@@ -41,7 +44,8 @@ class LoginFragment : Fragment() {
 
         viewModel.isSuccessEvent.observe(viewLifecycleOwner, { success ->
             if (success) {
-                requireActivity().finish()
+                val controller = findNavController()
+                controller.navigate(R.id.restaurantsFragment)
             }
         })
 

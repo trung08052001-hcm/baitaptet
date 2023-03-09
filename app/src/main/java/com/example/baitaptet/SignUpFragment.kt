@@ -28,6 +28,7 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         viewModel.initSharedPreferences(requireContext())
 
@@ -45,7 +46,6 @@ class SignUpFragment : Fragment() {
 
                 val controller = findNavController()
                 controller.navigate(R.id.loginFragment)
-                requireActivity().finish()
             }
         })
 
