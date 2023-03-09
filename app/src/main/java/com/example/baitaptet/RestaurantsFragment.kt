@@ -2,6 +2,7 @@ package com.example.baitaptet
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 
 import androidx.fragment.app.Fragment
@@ -25,6 +26,7 @@ class RestaurantsFragment : Fragment() {
     lateinit var adapter: ImageAdapter
     lateinit var viewModel: RestaurantsViewModel
     private var layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -40,6 +42,7 @@ class RestaurantsFragment : Fragment() {
         (activity as AppCompatActivity?)!!.supportActionBar?.hide()
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,7 +55,9 @@ class RestaurantsFragment : Fragment() {
         setUpButtonLoad()
         registerDataEvent()
         registerLoadingView()
-
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            requireActivity().finish()
+        }
 
         return binding.root
     }

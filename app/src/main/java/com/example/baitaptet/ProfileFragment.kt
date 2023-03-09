@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
         binding.viewModel = viewModel
         binding.buttonlogout.setOnClickListener {
             viewModel.clearSharedPreferences()
-            findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_profileFragment_to_welcomeFragment)
         }
     }
 }
