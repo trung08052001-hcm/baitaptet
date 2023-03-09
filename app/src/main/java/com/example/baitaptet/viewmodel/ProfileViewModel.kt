@@ -10,6 +10,10 @@ class ProfileViewModel : ViewModel() {
 
     private lateinit var sharedPreferences: SharedPreferences
 
+    private val _isLoggedOut = MutableLiveData<Boolean>()
+    val isLoggedOut: LiveData<Boolean>
+        get() = _isLoggedOut
+
     fun initSharedPreferences(context: Context) {
         sharedPreferences = context.getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
     }
@@ -20,6 +24,11 @@ class ProfileViewModel : ViewModel() {
 
     fun getEmail(): String {
         return sharedPreferences.getString("email", "") ?: ""
+    }
+
+    fun clearSharedPreferences() {
+        sharedPreferences.edit().clear().apply()
+        _isLoggedOut.value = true
     }
 }
 

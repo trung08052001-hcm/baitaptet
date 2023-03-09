@@ -10,62 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Baitaptet.NoActionBar"
+        android:theme="@style/Theme.Baitaptet"
         tools:targetApi="31">
-        <activity
-            android:name=".screen.restaurants.RestaurantsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".screen.wellcome.welcome"
-            android:exported="false" />
-        <activity
-            android:name=".screen.SignUp.registerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".screen.SignUp.SignupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainSignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".signUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".screen.SignUp.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".screen.wellcome.MainActivity3"
-            android:exported="false"
-            android:theme="@style/splasshScreenTheme" />
-        <activity
-            android:name=".screen.wellcome.MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.Baitaptet.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".screen.wellcome.MainActivity1"
-            android:exported="false" />
-        <activity
-            android:name=".screen.profile.ProfileActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".screen.login.newActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -74,5 +74,9 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.baitaptet.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

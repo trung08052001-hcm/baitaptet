@@ -3,10 +3,15 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import com.example.baitaptet.databinding.FragmentRestaurantsBinding
 import com.example.baitaptet.screen.restaurants.Image
@@ -19,9 +24,20 @@ class RestaurantsFragment : Fragment() {
     lateinit var binding: FragmentRestaurantsBinding
     lateinit var adapter: ImageAdapter
     lateinit var viewModel: RestaurantsViewModel
+    private var layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+    }
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar?.show()
+        (activity as AppCompatActivity?)!!.supportActionBar?.title = "My restaurants"
+
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        (activity as AppCompatActivity?)!!.supportActionBar?.hide()
     }
 
     override fun onCreateView(
@@ -36,24 +52,33 @@ class RestaurantsFragment : Fragment() {
         setUpButtonLoad()
         registerDataEvent()
         registerLoadingView()
-        (binding.toolbar as? AppCompatActivity)?.setSupportActionBar(binding.toolbar)
-        binding.toolbar.title = "Restaurants"
+
+
         return binding.root
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_option, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when(item.itemId) {
             R.id.action_profile -> {
-
+                findNavController().navigate(R.id.action_restaurantsFragment_to_profileFragment)
+                true
+            }
+            R.id.action_toggle_layout_manager -> {
+                layoutManager = if (layoutManager is LinearLayoutManager) {
+                    GridLayoutManager(requireContext(), 2)
+                } else {
+                    LinearLayoutManager(requireContext())
+                }
+                binding.rvImage.layoutManager = layoutManager
                 return true
             }
+            else -> super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
     }
-
     private fun setUpRecyclerView() {
         binding.rvImage.layoutManager = LinearLayoutManager(requireContext())
 

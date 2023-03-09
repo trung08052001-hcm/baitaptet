@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.baitaptet.databinding.FragmentProfileBinding
 import com.example.baitaptet.viewmodel.ProfileViewModel
 
@@ -32,8 +33,9 @@ class ProfileFragment : Fragment() {
         viewModel.initSharedPreferences(requireContext())
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
-        binding.contunue.setOnClickListener {
-
+        binding.buttonlogout.setOnClickListener {
+            viewModel.clearSharedPreferences()
+            findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
         }
     }
 }

@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_rounded_square"
-        android:padding="28dp">
+        android:padding="20dp">
 
         <ImageView
             android:id="@+id/iv_avatar"

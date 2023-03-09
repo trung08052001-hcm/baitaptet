@@ -34,7 +34,8 @@
     <string name="welcome_title">Welcome to Food Hub</string>
     <string name="welcome_body">Your favourite foods delivered fast at your door.</string>
     <string name="action_toggle_layout_manager">gird view</string>
-    <string name="continue_profile"> continue</string>
+    <string name="continue_profile"> LogOut</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_profile_layout_manger">profile</string>
 </resources>
