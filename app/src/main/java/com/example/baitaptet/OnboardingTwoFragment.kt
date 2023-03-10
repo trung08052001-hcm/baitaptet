@@ -1,5 +1,6 @@
 package com.example.baitaptet
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,9 +30,21 @@ class OnboardingTwoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val sharedPreferences = requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
+        val onboardingShown = sharedPreferences.getBoolean("onboarding_shown", false)
+        if (onboardingShown) {
+            findNavController().navigate(R.id.welcomeFragment)
+        }
         binding.imageNext2.setOnClickListener {
             val controller = findNavController()
             controller.navigate(R.id.onboardingThreeFragment2)
         }
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        // Cập nhật trạng thái đã hiển thị onboarding
+        val sharedPreferences = requireActivity().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putBoolean("onboarding_shown", true).apply()
     }
 }

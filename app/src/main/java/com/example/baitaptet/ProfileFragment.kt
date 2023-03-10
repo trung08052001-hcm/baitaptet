@@ -19,7 +19,10 @@ class ProfileFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
     }
-
+    override fun onPause() {
+        super.onPause()
+        setHasOptionsMenu(false)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
