@@ -3,26 +3,82 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/splashFragment2">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.baitaptet.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first" >
-
+        android:id="@+id/splashFragment2"
+        android:name="com.example.baitaptet.SplashFragment"
+        android:label="SplashFragment" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_splashFragment2_to_onboardingOneFragment2"
+            app:destination="@id/onboardingOneFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.baitaptet.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second" >
-
+        android:id="@+id/onboardingOneFragment2"
+        android:name="com.example.baitaptet.OnboardingOneFragment"
+        android:label="OnboardingOneFragment" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_onboardingOneFragment2_to_onboardingTwoFragment2"
+            app:destination="@id/onboardingTwoFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingTwoFragment2"
+        android:name="com.example.baitaptet.OnboardingTwoFragment"
+        android:label="OnboardingTwoFragment" >
+        <action
+            android:id="@+id/action_onboardingTwoFragment2_to_onboardingThreeFragment2"
+            app:destination="@id/onboardingThreeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingThreeFragment2"
+        android:name="com.example.baitaptet.OnboardingThreeFragment"
+        android:label="OnboardingThreeFragment" >
+        <action
+            android:id="@+id/action_onboardingThreeFragment2_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.baitaptet.WelcomeFragment"
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.baitaptet.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_restaurantsFragment"
+            app:destination="@id/restaurantsFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.baitaptet.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantsFragment"
+        android:name="com.example.baitaptet.RestaurantsFragment"
+        android:label="RestaurantsFragment" >
+        <action
+            android:id="@+id/action_restaurantsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.baitaptet.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
     </fragment>
 </navigation>

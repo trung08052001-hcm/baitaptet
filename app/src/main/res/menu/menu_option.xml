@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_toggle_layout_manager"
+        android:title="@string/action_toggle_layout_manager" />
+    <item
+        android:id="@+id/action_profile"
+        android:title="@string/action_profile_layout_manger"
+        android:icon="@drawable/img"
+        app:showAsAction="always" />
+</menu>

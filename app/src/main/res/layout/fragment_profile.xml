@@ -2,7 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable
             name="viewModel"
@@ -13,8 +12,7 @@
         android:background="@drawable/profile_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screen.profile.ProfileActivity">
-
+        tools:context=".ProfileFragment">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageViewPhone"
@@ -133,7 +131,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewPhoneLabel" />
 
         <Button
-            android:id="@+id/contunue"
+            android:id="@+id/buttonlogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
